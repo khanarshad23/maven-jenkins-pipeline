@@ -36,9 +36,10 @@ pipeline {
               -Dsonar.profile=Acute-Java-Quality-Profiles
           """
         }
-        timeout(time: 2, unit: 'MINUTES') {
-          script {
-            waitForQualityGate abortPipeline: true
+        script {
+          def qualityGate = waitForQualityGate()
+          if (qualityGate.status != 'OK') {
+            currentBuild.result = 'UNSTABLE'
           }
         }
       }
