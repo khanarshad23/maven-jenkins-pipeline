@@ -1,7 +1,7 @@
 pipeline {
   agent any
   tools {
-        maven "Maven 3.8.6" 
+        maven "maven3.9.9" 
    }
 
   stages {
@@ -25,10 +25,10 @@ pipeline {
 
       stage('Sonarqube Analysis - SAST') {
             steps {
-                  withSonarQubeEnv('SonarQube') {
+                  withSonarQubeEnv('SonarQube_server') {
            sh "mvn sonar:sonar \
-                              -Dsonar.projectKey=maven-jenkins-pipeline \
-                        -Dsonar.host.url=http://34.173.74.192:9000" 
+                              -Dsonar.projectKey=demo-project \
+                        -Dsonar.host.url=http://10.0.254.42/:9000" 
                 }
            timeout(time: 2, unit: 'MINUTES') {
                       script {
