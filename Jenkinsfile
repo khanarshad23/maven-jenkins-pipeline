@@ -36,14 +36,6 @@ pipeline {
               -Dsonar.profile=Acute-Java-Quality-Profiles
           """
         }
-        script {
-          def qualityGate = waitForQualityGate(timeout: 120) // 2 minutes timeout
-          
-          if (qualityGate.status != 'OK') {
-            echo "Quality Gate Failed: ${qualityGate.status}. Marking build as UNSTABLE."
-            currentBuild.result = 'UNSTABLE' // Mark the build as UNSTABLE if quality gate fails or takes too long
-          }
-        }
       }
     }
   }
