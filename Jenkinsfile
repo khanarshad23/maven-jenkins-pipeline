@@ -2,7 +2,7 @@ pipeline {
   agent any
   tools {
     maven "maven3.9.9"
-    sonarScanner "SonarScanner 4.0"  // Ensure this is configured in Jenkins' Global Tools
+    sonarScanner "sonarscanner"  // Ensure this is configured in Jenkins' Global Tools
   }
 
   stages {
