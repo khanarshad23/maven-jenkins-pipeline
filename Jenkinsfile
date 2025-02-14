@@ -25,6 +25,7 @@ pipeline {
 
     stage('SonarQube Analysis - SAST') {
       steps {
+        def scannerHome = tool 'sonarscanner';
         withSonarQubeEnv('SonarQube_server') {
           sh """
             mvn clean verify sonar:sonar \
@@ -37,6 +38,6 @@ pipeline {
           """
         }
       }
-    }
+    }    
   }
 }
