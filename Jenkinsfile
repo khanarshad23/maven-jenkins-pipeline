@@ -25,7 +25,7 @@ pipeline {
 
      stage('SonarQube Analysis - SAST') {
        steps {
-         timeout(time: 2, unit: 'MINUTES') {
+         timeout(time: 5, unit: 'MINUTES') {
            withSonarQubeEnv('SonarQube_server') {
              sh "mvn clean verify sonar:sonar \
                -Dsonar.projectKey=demo-project \
