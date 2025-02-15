@@ -1,3 +1,5 @@
+Backup old demo Jenkins file with sonar 
+
 pipeline {
    agent any
    tools {
@@ -34,7 +36,6 @@ pipeline {
                -Dsonar.token=sqp_8376f4b2c23b4fedfc27dd92970362f4eba063db \
                -Dsonar.java.binaries=target/classes \
                -Dsonar.profile=Acute-Java-Quality-Profiles"
-              
            }
            script {
              def qualityGateResult = waitForQualityGate()
