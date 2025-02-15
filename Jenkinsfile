@@ -1,5 +1,3 @@
-Backup old demo Jenkins file with sonar 
-
 pipeline {
    agent any
    tools {
