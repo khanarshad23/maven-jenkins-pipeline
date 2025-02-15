@@ -31,7 +31,7 @@ pipeline {
                -Dsonar.projectKey=demo-project \
                -Dsonar.projectName='demo-project' \
                -Dsonar.host.url=http://10.0.254.42:9000 \
-               -Dsonar.token=sqp_8376f4b2c23b4fedfc27dd92970362f4eba063db"
+               -Dsonar.token=sqp_8376f4b2c23b4fedfc27dd92970362f4eba063db" 
            }
            script {
              def qualityGateResult = waitForQualityGate()
